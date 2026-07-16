@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/* All colours live here as CSS variables.
+   Changing a value here updates the whole site, and it is what makes
+   dark mode easy later - we only override these variables. */
+:root {
+  --background: #f6f9fa;
+  --surface: #ffffff;
+  --foreground: #272c49;
+  --muted: #5b6b76;
+  --border: #dfe6ea;
+
+  /* brand teal - used for primary buttons and highlights */
+  --primary: #25cdc7;
+  --primary-strong: #14b8b2;
+
+  /* navy - text colour on teal buttons, and for solid dark buttons */
+  --navy: #272c49;
+  --navy-strong: #1b2036;
+
+  /* supporting blue */
+  --accent: #1766c2;
+  --accent-strong: #002a5c;
+
+  /* status colours for form messages */
+  --success: #0f7b6c;
+  --danger: #c53b2f;
+}
+
+/* @theme inline turns the variables above into tailwind class names.
+   --color-primary gives us bg-primary, text-primary, border-primary, etc. */
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-strong: var(--primary-strong);
+  --color-navy: var(--navy);
+  --color-navy-strong: var(--navy-strong);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+
+  --font-sans: var(--font-mulish);
+  --font-display: var(--font-sora);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-mulish), sans-serif;
+}
+
+/* Show a clear outline when moving through the page with the keyboard. */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
