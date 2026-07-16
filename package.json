@@ -14,7 +14,7 @@
     "crm",
     "inquiry"
   ],
-  "author": "Abhishek",
+  "author": "Piyush Bagoria",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
