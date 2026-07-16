@@ -1,4 +1,3 @@
-// Small coloured pill. Used in the admin table for the inquiry status.
 const variantClasses = {
   new: "bg-primary/20 text-accent-strong",
   contacted: "bg-accent/15 text-accent",

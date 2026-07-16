@@ -1,5 +1,3 @@
-// Small spinning circle used inside buttons while a request is running.
-// aria-hidden because the button text already says what is happening.
 export function Spinner({ className = "h-4 w-4" }) {
   return (
     <svg

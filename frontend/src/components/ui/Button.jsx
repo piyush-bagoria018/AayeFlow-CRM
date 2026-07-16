@@ -1,10 +1,7 @@
 import { Spinner } from "./Spinner";
 
-// The colour choices are kept in objects so the JSX below stays readable
-// and every button on the site can only use an approved combination.
-//
-// Note: our brand teal is bright, so white text on it is hard to read.
-// Navy text on teal is used instead, which is both on brand and readable.
+// Navy text on teal, not white: the brand teal is bright and white on it
+// fails contrast (1.97:1). Navy gives 6.89:1.
 const variantClasses = {
   primary: "bg-primary text-navy hover:bg-primary-strong",
   secondary: "bg-navy text-white hover:bg-navy-strong",
@@ -31,7 +28,6 @@ export function Button({
   return (
     <button
       type={type}
-      // A loading button must not be clickable twice.
       disabled={disabled || isLoading}
       className={`inline-flex items-center justify-center gap-2 rounded-md font-semibold transition disabled:cursor-not-allowed disabled:opacity-60 ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
       {...props}

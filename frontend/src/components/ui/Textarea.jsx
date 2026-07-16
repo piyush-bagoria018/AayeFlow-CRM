@@ -1,6 +1,5 @@
 import { FormField, fieldBaseClasses } from "./FormField";
 
-// A multi line text box, used for the inquiry message.
 export function Textarea({
   label,
   name,
