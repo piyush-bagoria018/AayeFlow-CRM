@@ -1,0 +1,19 @@
+# dependencies
+node_modules/
+
+# environment variables
+.env
+.env.local
+
+# next.js
+frontend/.next/
+frontend/out/
+frontend/build/
+
+# logs
+*.log
+npm-debug.log*
+
+# editor / os
+.DS_Store
+Thumbs.db
