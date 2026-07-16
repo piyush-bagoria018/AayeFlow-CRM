@@ -4,7 +4,6 @@ import { SectionHeader } from "@/components/common/SectionHeader";
 import { Button } from "@/components/ui/Button";
 import { pricingPlans } from "@/data/pricing";
 
-// Small tick used in the feature list of each plan.
 function CheckIcon() {
   return (
     <svg
@@ -35,7 +34,6 @@ export function Pricing() {
         {pricingPlans.map((plan) => (
           <div
             key={plan.name}
-            // The popular plan gets a teal border so the eye lands on it first.
             className={`relative flex flex-col rounded-xl border bg-background p-6 ${
               plan.isPopular
                 ? "border-primary shadow-lg lg:-mt-2 lg:mb-2"
@@ -54,17 +52,14 @@ export function Pricing() {
             <p className="mt-1 text-sm text-muted">{plan.description}</p>
 
             <div className="mt-5 flex items-baseline gap-1">
-              {/* "Custom" has no rupee sign in front of it. */}
               {plan.price === "Custom" ? (
                 <span className="font-display text-3xl font-bold text-foreground">
                   Custom
                 </span>
               ) : (
-                <>
-                  <span className="font-display text-3xl font-bold text-foreground">
-                    &#8377;{plan.price}
-                  </span>
-                </>
+                <span className="font-display text-3xl font-bold text-foreground">
+                  &#8377;{plan.price}
+                </span>
               )}
             </div>
             <p className="mt-1 text-xs text-muted">{plan.period}</p>

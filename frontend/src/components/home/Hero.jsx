@@ -2,8 +2,6 @@ import Link from "next/link";
 import { Container } from "@/components/common/Container";
 import { Button } from "@/components/ui/Button";
 
-// Numbers shown under the buttons. Kept next to the component because
-// they are only ever used here.
 const stats = [
   { value: "2,400+", label: "Sales teams" },
   { value: "18M+", label: "Deals tracked" },
@@ -48,7 +46,6 @@ export function Hero() {
           </p>
         </div>
 
-        {/* Stat row */}
         <div className="mx-auto mt-14 grid max-w-2xl grid-cols-3 gap-4 border-t border-border pt-8">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">

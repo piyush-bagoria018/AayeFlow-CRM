@@ -11,8 +11,6 @@ export function Features() {
         subtitle="The tools your team uses every day, in one place, without the setup work most CRMs demand."
       />
 
-      {/* One card per item in the features array.
-          1 column on mobile, 2 on tablet, 3 on desktop. */}
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {features.map((feature) => (
           <div

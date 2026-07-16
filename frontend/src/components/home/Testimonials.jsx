@@ -2,8 +2,6 @@ import { Section } from "@/components/common/Section";
 import { SectionHeader } from "@/components/common/SectionHeader";
 import { testimonials } from "@/data/testimonials";
 
-// Builds the initials shown in the avatar circle, so
-// "Ananya Rao" becomes "AR". Saves us needing photo files.
 function getInitials(name) {
   return name
     .split(" ")

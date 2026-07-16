@@ -4,10 +4,10 @@ import { formatDate } from "@/utils/formatDate";
 
 export function InquiryTable({ inquiries, onDelete, deletingId }) {
   return (
-    // A table cannot shrink to phone width, so it scrolls sideways
-    // inside this box instead of stretching the whole page.
+    // A table cannot shrink to phone width, so it scrolls inside this box
+    // instead of stretching the whole page.
     <div className="overflow-x-auto rounded-xl border border-border bg-surface">
-      <table className="w-full min-w-[900px] text-left text-sm">
+      <table className="w-full min-w-225 text-left text-sm">
         <thead className="border-b border-border bg-background">
           <tr>
             <th className="px-4 py-3 font-semibold text-foreground">Name</th>
@@ -58,8 +58,6 @@ export function InquiryTable({ inquiries, onDelete, deletingId }) {
                 <button
                   type="button"
                   onClick={() => onDelete(inquiry)}
-                  // Disabled while this row's delete is in flight, so it
-                  // cannot be clicked twice.
                   disabled={deletingId === inquiry._id}
                   className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-semibold text-danger transition hover:bg-danger/10 disabled:cursor-not-allowed disabled:opacity-50"
                   aria-label={`Delete inquiry from ${inquiry.fullName}`}

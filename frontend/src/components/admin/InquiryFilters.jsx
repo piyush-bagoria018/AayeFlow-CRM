@@ -3,9 +3,6 @@ import { Select } from "@/components/ui/Select";
 import { Button } from "@/components/ui/Button";
 import { industries, companySizes } from "@/data/formOptions";
 
-// The search box and the two dropdowns.
-// This component holds no state of its own - the admin page owns the
-// filter values and passes them down, which keeps one source of truth.
 export function InquiryFilters({ filters, onChange, onClear, hasFilters }) {
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -40,7 +37,6 @@ export function InquiryFilters({ filters, onChange, onClear, hasFilters }) {
         />
       </div>
 
-      {/* Only offer "clear" when there is something to clear. */}
       {hasFilters ? (
         <div className="mt-4">
           <Button variant="ghost" size="sm" onClick={onClear}>

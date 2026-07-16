@@ -10,7 +10,6 @@ export function Footer() {
     <footer className="mt-auto border-t border-border bg-surface">
       <Container className="py-12">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Brand column */}
           <div className="lg:col-span-2">
             <Logo />
             <p className="mt-4 max-w-sm text-sm text-muted">
@@ -24,7 +23,6 @@ export function Footer() {
             </a>
           </div>
 
-          {/* Link columns, built from site.js */}
           {siteConfig.footerLinks.map((group) => (
             <div key={group.title}>
               <h3 className="font-display text-sm font-semibold text-foreground">

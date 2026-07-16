@@ -1,5 +1,3 @@
-// The small label, heading and sentence that sit above each section.
-// Centred by default because most landing page sections are centred.
 export function SectionHeader({ eyebrow, title, subtitle, align = "center" }) {
   const isCentered = align === "center";
 

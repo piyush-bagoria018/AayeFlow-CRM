@@ -8,8 +8,6 @@ import { Container } from "./Container";
 import { Button } from "@/components/ui/Button";
 
 export function Header() {
-  // Tracks whether the mobile menu is open. This is why the file needs
-  // "use client" - useState only works in a client component.
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const closeMenu = () => setIsMenuOpen(false);
@@ -20,7 +18,6 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           <Logo />
 
-          {/* Desktop navigation. Hidden below the md breakpoint. */}
           <nav className="hidden items-center gap-8 md:flex">
             {siteConfig.navLinks.map((link) => (
               <Link
@@ -39,7 +36,6 @@ export function Header() {
             </Link>
           </div>
 
-          {/* Mobile menu button. Hidden from md upwards. */}
           <button
             type="button"
             onClick={() => setIsMenuOpen((open) => !open)}
@@ -64,7 +60,6 @@ export function Header() {
           </button>
         </div>
 
-        {/* Mobile menu. Only in the page when it is open. */}
         {isMenuOpen ? (
           <nav className="flex flex-col gap-1 border-t border-border py-4 md:hidden">
             {siteConfig.navLinks.map((link) => (

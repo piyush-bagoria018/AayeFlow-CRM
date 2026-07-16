@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 
-// The brand mark. Used by both the header and the footer, so it lives
-// in its own file instead of being written twice.
 export function Logo({ className = "" }) {
   return (
     <Link href="/" className={`flex items-center gap-2 ${className}`}>

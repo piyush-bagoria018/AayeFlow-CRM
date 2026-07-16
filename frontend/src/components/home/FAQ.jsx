@@ -6,9 +6,6 @@ import { SectionHeader } from "@/components/common/SectionHeader";
 import { faqs } from "@/data/faq";
 
 export function FAQ() {
-  // Holds the index of the open question, or null when all are closed.
-  // Only one can be open at a time, which is why this is a single value
-  // and not a list.
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggle = (index) => {
@@ -42,7 +39,6 @@ export function FAQ() {
                   {faq.question}
                 </span>
 
-                {/* The same chevron, rotated when open. */}
                 <svg
                   className={`h-4 w-4 shrink-0 text-muted transition-transform ${
                     isOpen ? "rotate-180" : ""
