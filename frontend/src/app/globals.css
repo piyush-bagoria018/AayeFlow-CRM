@@ -27,6 +27,27 @@
   --danger: #c53b2f;
 }
 
+/* Dark mode. Only the values change - no component needs editing, because
+   every colour class points at these variables. */
+.dark {
+  --background: #0f1419;
+  --surface: #171d24;
+  --foreground: #e6edf3;
+  --muted: #8b98a5;
+  --border: #2a333d;
+
+  /* teal stays the same, the brand should not change with the theme */
+  --primary: #25cdc7;
+  --primary-strong: #4dd8d3;
+
+  /* the light blue accent is too dim on a dark background, so it lifts */
+  --accent: #4da3ff;
+  --accent-strong: #8cc4ff;
+
+  --success: #3fb950;
+  --danger: #f85149;
+}
+
 /* @theme inline turns the variables above into tailwind class names.
    --color-primary gives us bg-primary, text-primary, border-primary, etc. */
 @theme inline {
