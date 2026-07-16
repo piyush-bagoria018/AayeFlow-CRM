@@ -1,6 +1,3 @@
-// The six product features shown in the Features section.
-// iconPath is the "d" attribute of an svg path, so the component can
-// draw the icon without us installing an icon library.
 export const features = [
   {
     title: "Lead Capture",

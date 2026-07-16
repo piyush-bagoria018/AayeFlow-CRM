@@ -1,5 +1,3 @@
-// The three pricing plans. isPopular highlights the middle card,
-// which is the plan we want most visitors to pick.
 export const pricingPlans = [
   {
     name: "Starter",

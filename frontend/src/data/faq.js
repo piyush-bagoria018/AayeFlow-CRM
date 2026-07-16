@@ -1,4 +1,3 @@
-// Questions shown in the FAQ section.
 export const faqs = [
   {
     question: "How long does it take to get started?",

@@ -1,5 +1,3 @@
-// Turns the createdAt string from mongodb ("2026-07-16T10:30:00.000Z")
-// into something readable like "16 Jul 2026, 10:30 am".
 export function formatDate(value) {
   if (!value) return "-";
 
