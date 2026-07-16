@@ -34,7 +34,7 @@ export function Header() {
           </nav>
 
           <div className="hidden md:block">
-            <Link href="#contact">
+            <Link href="/#contact">
               <Button variant="primary">Contact Sales</Button>
             </Link>
           </div>
@@ -77,7 +77,7 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <Link href="#contact" onClick={closeMenu} className="mt-2">
+            <Link href="/#contact" onClick={closeMenu} className="mt-2">
               <Button variant="primary" className="w-full">
                 Contact Sales
               </Button>

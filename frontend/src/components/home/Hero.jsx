@@ -31,12 +31,12 @@ export function Hero() {
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link href="#contact" className="w-full sm:w-auto">
+            <Link href="/#contact" className="w-full sm:w-auto">
               <Button variant="primary" size="lg" className="w-full sm:w-auto">
                 Contact Sales
               </Button>
             </Link>
-            <Link href="#pricing" className="w-full sm:w-auto">
+            <Link href="/#pricing" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="w-full sm:w-auto">
                 See pricing
               </Button>

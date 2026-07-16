@@ -78,7 +78,7 @@ export function Pricing() {
               ))}
             </ul>
 
-            <Link href="#contact" className="mt-8 block">
+            <Link href="/#contact" className="mt-8 block">
               <Button
                 variant={plan.isPopular ? "primary" : "outline"}
                 className="w-full"
