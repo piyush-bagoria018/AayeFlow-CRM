@@ -1,8 +1,5 @@
 import mongoose from "mongoose";
 
-// The 8 fields the assessment asks for.
-// Validation lives here too, so a bad request is rejected even if it
-// does not come from our own form (for example, someone using Postman).
 const inquirySchema = new mongoose.Schema(
   {
     fullName: {
@@ -44,6 +41,7 @@ const inquirySchema = new mongoose.Schema(
     companySize: {
       type: String,
       required: [true, "Company size is required"],
+      // These values are mirrored in frontend/src/data/formOptions.js.
       enum: {
         values: ["1-10", "11-50", "51-200", "201-500", "500+"],
         message: "{VALUE} is not a valid company size",
@@ -62,7 +60,7 @@ const inquirySchema = new mongoose.Schema(
       default: "new",
     },
   },
-  { timestamps: true } // adds createdAt and updatedAt automatically
+  { timestamps: true }
 );
 
 const Inquiry = mongoose.model("Inquiry", inquirySchema);

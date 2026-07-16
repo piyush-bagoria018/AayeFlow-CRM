@@ -4,9 +4,8 @@ import connectDB from "./db/index.js";
 
 dotenv.config();
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 
-// Connect to the database first, then start listening.
 connectDB()
   .then(() => {
     app.listen(PORT, () => {

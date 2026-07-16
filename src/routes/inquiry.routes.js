@@ -7,7 +7,6 @@ import {
 
 const router = Router();
 
-// Routes only connect a URL to a controller. No logic here.
 router.route("/").post(createInquiry).get(getInquiries);
 
 router.route("/:id").delete(deleteInquiry);

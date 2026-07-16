@@ -1,5 +1,3 @@
-// Every successful response uses this shape, so the frontend always
-// knows what to expect: { statusCode, data, message, success }
 class ApiResponse {
   constructor(statusCode, data, message = "Success") {
     this.statusCode = statusCode;
