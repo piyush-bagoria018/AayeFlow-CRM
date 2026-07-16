@@ -3,8 +3,6 @@ import { Header } from "@/components/common/Header";
 import { Footer } from "@/components/common/Footer";
 import "./globals.css";
 
-// Next downloads and self hosts these fonts at build time.
-// "variable" exposes each one as a css variable we use in globals.css.
 const mulish = Mulish({
   variable: "--font-mulish",
   subsets: ["latin"],
@@ -17,7 +15,6 @@ const sora = Sora({
   display: "swap",
 });
 
-// Shown in the browser tab and used by search engines.
 export const metadata = {
   title: "AayeFlow - CRM built for growing sales teams",
   description:

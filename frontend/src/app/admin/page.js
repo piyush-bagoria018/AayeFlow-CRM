@@ -13,20 +13,13 @@ const emptyFilters = { search: "", industry: "", companySize: "" };
 export default function AdminPage() {
   const [inquiries, setInquiries] = useState([]);
   const [filters, setFilters] = useState(emptyFilters);
-
-  // "loading" | "success" | "error"
   const [status, setStatus] = useState("loading");
   const [error, setError] = useState("");
-
-  // Holds the id of the row currently being deleted, so only that
-  // row shows a spinner instead of the whole table.
   const [deletingId, setDeletingId] = useState(null);
 
   const hasFilters =
     filters.search !== "" || filters.industry !== "" || filters.companySize !== "";
 
-  // useCallback keeps this function stable between renders, so the
-  // effect below does not re-run for no reason.
   const loadInquiries = useCallback(async () => {
     setStatus("loading");
     setError("");
@@ -41,9 +34,8 @@ export default function AdminPage() {
     }
   }, [filters]);
 
-  // Runs when the filters change. The 400ms timer means we wait until
-  // the user stops typing before calling the api, instead of firing a
-  // request on every keystroke. The cleanup cancels the pending timer.
+  // The 400ms timer waits until the user stops typing before calling the
+  // api, so a 5 letter search is one request instead of five.
   useEffect(() => {
     const timer = setTimeout(() => {
       loadInquiries();
@@ -68,8 +60,6 @@ export default function AdminPage() {
 
     try {
       await deleteInquiry(inquiry._id);
-      // Remove it from the list we already have instead of refetching
-      // everything, so the row disappears immediately.
       setInquiries((previous) => previous.filter((item) => item._id !== inquiry._id));
     } catch (err) {
       setError(err.message);
