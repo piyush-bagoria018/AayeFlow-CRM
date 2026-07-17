@@ -12,9 +12,10 @@ Visitors read the landing page and submit an inquiry. The inquiry is validated, 
 
 | | URL |
 |---|---|
-| Frontend | _to be added after deployment_ |
-| Backend API | _to be added after deployment_ |
-| Admin Dashboard | _to be added after deployment_ |
+| Landing Page | https://aaye-flow-crm.vercel.app |
+| Admin Dashboard | https://aaye-flow-crm.vercel.app/admin |
+| Backend API | https://plankton-app-ogmq5.ondigitalocean.app/api |
+| API Health Check | https://plankton-app-ogmq5.ondigitalocean.app/api/health |
 
 > The admin dashboard is intentionally open (no login). Authentication was out of scope for this assessment.
 
@@ -30,6 +31,8 @@ Visitors read the landing page and submit an inquiry. The inquiry is validated, 
 | Fonts | Mulish + Sora (`next/font`) | Self-hosted at build time, no external request, no layout shift |
 | Backend | Node.js + Express 4 | Specified as preferred in the brief |
 | Database | MongoDB Atlas + Mongoose | Specified as preferred in the brief |
+| Testing | Vitest | Validation is a pure function, so it needs no browser or mocks |
+| Hosting | Vercel (frontend) + DigitalOcean App Platform (backend) | Both give HTTPS by default, and neither sleeps on idle |
 
 ---
 
@@ -39,6 +42,7 @@ Visitors read the landing page and submit an inquiry. The inquiry is validated, 
 - Hero, Features, Pricing, Testimonials, FAQ, Contact form, Footer
 - Fully responsive (mobile, tablet, desktop)
 - Accordion FAQ, sticky header with mobile menu
+- Light and dark mode, remembered between visits
 
 **Inquiry form** — all 8 required fields
 - Full Name, Company Name, Email, Phone, Country, Industry, Company Size, Message
@@ -86,7 +90,7 @@ AayeFlow-CRM/
 │   │   │   └── admin/page.js     # Admin dashboard
 │   │   ├── components/
 │   │   │   ├── ui/               # Button, Input, Select, Textarea, Badge, Spinner
-│   │   │   ├── common/           # Container, Section, Header, Footer, Logo
+│   │   │   ├── common/           # Container, Section, Header, Footer, Logo, ThemeToggle
 │   │   │   ├── home/             # Hero, Features, Pricing, Testimonials, FAQ
 │   │   │   ├── inquiry/          # InquiryForm, ContactSection
 │   │   │   └── admin/            # InquiryTable, InquiryFilters
@@ -96,7 +100,10 @@ AayeFlow-CRM/
 │   │   ├── data/                 # Static content (features, pricing, faq, ...)
 │   │   ├── services/
 │   │   │   └── inquiry.service.js # All inquiry API calls
-│   │   └── utils/                # validateInquiry, formatDate
+│   │   └── utils/
+│   │       ├── validateInquiry.js      # Form validation rules
+│   │       ├── validateInquiry.test.js # 15 unit tests
+│   │       └── formatDate.js
 │   └── .env.local.example
 │
 ├── .env.example
@@ -164,6 +171,30 @@ npm run dev      # http://localhost:3000
 ```
 
 Both servers must be running. Landing page at `/`, dashboard at `/admin`.
+
+---
+
+## Running the Tests
+
+```bash
+cd frontend
+npm test
+```
+
+15 unit tests covering the inquiry form validation:
+
+```
+ ✓ src/utils/validateInquiry.test.js (15 tests) 7ms
+
+ Test Files  1 passed (1)
+      Tests  15 passed (15)
+```
+
+They cover a valid submission, an empty form returning exactly eight errors, and each field's rules — name length, email format, phone format, unselected dropdowns, and message length — plus a check that only the invalid field reports an error and the others stay clean.
+
+`validateInquiry` is a pure function: values in, errors out, with no React, no DOM and no network. That is what makes it testable without rendering a component or mocking a browser, and it is why the validation lives outside the form rather than inside it.
+
+Use `npm run test:watch` to re-run them as you edit.
 
 ---
 
